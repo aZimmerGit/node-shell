@@ -1,4 +1,11 @@
 const pwd = require('./pwd.js');
-const fs = require('fs');
+const ls = require('./ls.js')
+//const fs = require('fs');
 process.stdout.write('prompt > ');
-pwd();
+
+process.stdin.on('data', data =>  {
+  const cmd = data.toString().trim();
+  if (cmd === 'pwd') {
+    pwd();
+  }
+})
